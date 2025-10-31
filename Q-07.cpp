@@ -1,33 +1,6 @@
 /*
-Write a program which converts a word of C++ program to its equivalent token.
-RESULT:
-Input: 646.45
-Output: Float
-Input: do
-Output: Keyword
-Input: 554
-Output: Integer
-Input: abc
-Output: Identifier
-Input: +
-Output: Arithmetic Operator
-
-int
-while
-white
-if
-id
-_x
-8.7
-94
-"c++"
-5j
-=
-+
->=
-main
-2.6.7
-5.
+Write a program to recognize C++
+ i) Keyword ii) Identifier iii) Operator iv) Constant
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,51 +10,40 @@ string keywords[] = {"alignas", "alignof", "and", "and_eq", "asm", "auto", "bita
                      "continue", "co_await", "co_return", "co_yield", "decltype", "default", "delete",
                      "do", "double", "dynamic_cast", "else", "enum", "explicit", "export", "extern",
                      "false", "float", "for", "friend", "goto", "if", "import", "inline", "include", "int",
-                     "long", "module", "mutable", "namespace", "new", "noexcept", "not", "not_eq",
+                     "long", "module", "mutable", "main", "namespace", "new", "noexcept", "not", "not_eq",
                      "nullptr", "operator", "or", "or_eq", "private", "protected", "public", "register",
                      "reinterpret_cast", "requires", "return", "short", "signed", "sizeof", "static",
                      "static_assert", "static_cast", "struct", "switch", "synchronized", "template",
                      "this", "thread_local", "throw", "true", "try", "typedef", "typeid", "typename",
                      "union", "unsigned", "using", "virtual", "void", "volatile", "wchar_t", "while",
                      "xor", "xor_eq"};
-
-string arithmetic_operators[] = {"+", "-", "*", "/", "%"};
-string relational_operators[] = {"==", "!=", "<", ">", "<=", ">="};
-string logical_operators[] = {"&&", "||", "!"};
-string bitwise_operators[] = {"&", "|", "^", "~", "<<", ">>"};
-string assignment_operators[] = {"=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>="};
-string increment_decrement_operators[] = {"++", "--"};
+string operators[] = {
+    "+", "-", "*", "/", "%",                                           // Arithmetic Operators
+    "==", "!=", "<", ">", "<=", ">=",                                  // Relational Operators
+    "&&", "||", "!",                                                   // Logical Operators
+    "&", "|", "^", "~", "<<", ">>",                                    // Bitwise Operators
+    "=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>=", // Assignment Operators
+    "++", "--",                                                        // Increment and Decrement Operators
+    "?", ":",                                                          // Conditional Operator
+    ",",                                                               // Comma Operator
+    ".", "->",                                                         // Member Access Operators
+    "::"                                                               // Scope Resolution Operator
+};
 
 int main()
 {
-    //ifstream fin("Q-08.input.txt");
+    // ifstream fin("Q-08.input.txt");
     string str;
     while (getline(cin, str))
     {
         bool isValid = true;
         if (find(begin(keywords), end(keywords), str) != end(keywords))
         {
-            cout << str << " : " << "Keywords" << "\n";
+            cout << str << " : " << "Keyword\n";
         }
-        else if (find(begin(arithmetic_operators), end(arithmetic_operators), str) != end(arithmetic_operators))
+        else if (find(begin(operators), end(operators), str) != end(operators))
         {
-            cout << str << " : " << "Arithmetic Operator\n";
-        }
-        else if (find(begin(relational_operators), end(relational_operators), str) != end(relational_operators))
-        {
-            cout << str << " : " << "Relational Operator\n";
-        }
-        else if (find(begin(logical_operators), end(logical_operators), str) != end(logical_operators))
-        {
-            cout << str << " : " << "Logical Operator\n";
-        }
-        else if (find(begin(assignment_operators), end(assignment_operators), str) != end(assignment_operators))
-        {
-            cout << str << " : " << "Assignment Operator\n";
-        }
-        else if (find(begin(increment_decrement_operators), end(increment_decrement_operators), str) != end(increment_decrement_operators))
-        {
-            cout << str << " : " << "Increment or Decrement Operator\n";
+            cout << str << " : " << "Operator\n";
         }
         else if (str[0] == '_' || isalpha(str[0]))
         {
@@ -94,13 +56,11 @@ int main()
                 }
             }
             if (isValid)
-            {
                 cout << str << " : " << "Identifier\n";
-            }
         }
         else if (str[0] == '"' && str[str.length() - 1] == '"')
         {
-            cout << str << " : " << "String Literal\n";
+            cout << str << " : " << "Constant\n";
         }
         else if (str[0] == '.' || isdigit(str[0]))
         {
@@ -114,20 +74,13 @@ int main()
                     isValid = false;
                 }
             }
-            if (isValid)
+            if (isValid && dot_cnt < 2)
             {
-                if (dot_cnt == 0)
-                {
-                    cout << str << " : " << "Integer\n";
-                }
-                else if (dot_cnt == 1)
-                {
-                    cout << str << " : " << "Float\n";
-                }
-                else
-                {
-                    isValid = false;
-                }
+                cout << str << " : " << "Constant\n";
+            }
+            else
+            {
+                isValid = false;
             }
         }
         else
@@ -135,8 +88,9 @@ int main()
             isValid = false;
         }
         if (!isValid)
+        {
             cout << str << " : " << "Invalid Lexeme\n";
+        }
     }
-
     return 0;
 }
