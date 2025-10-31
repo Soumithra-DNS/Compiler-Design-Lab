@@ -4,6 +4,23 @@ expressions. It takes a text as input from a file (e.g. input.txt) and display o
 console mode: E -> EAE|(E)|ID
               A -> + | - | * | /
               ID -> any valid identifier | any valid integer
+
+2+3*5
+2+3*+5
+2*(3+5)
+id+5
+3+((4+4))
+6.7+3
+(9*66(
+(5)
+_id+5id*5
+()a+b
+)(a+b
+5+6+
+)4+5)
+8+(5+)8
+8(*)5
+
 */
 
 
@@ -26,6 +43,7 @@ bool checkParentheses(const string& expr) {
     }
     return stk.empty();
 }
+
 
 bool isInteger(const string& str){
   static const regex int_regex(R"(^\d+$)");

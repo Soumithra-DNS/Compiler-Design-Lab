@@ -9,6 +9,18 @@ PN -> Sagor | Selim | Salma | Nipu
 P -> he | she | i | we | you | they 
 N -> book | cow | dog | home | grass | rice | mango 
 V -> read | eat | take | run | write
+
+Nipu read book
+Nipu read book.
+nipu read book
+nipu read mango book
+Salma take mango
+I eat grass
+cow eat grass
+Selim run
+we read book
+read book
+Sagor mango eat
 */
 
 
