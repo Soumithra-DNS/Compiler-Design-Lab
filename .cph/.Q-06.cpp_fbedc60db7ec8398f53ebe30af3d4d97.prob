@@ -1,0 +1,1 @@
+{"name":"Local: Q-06","url":"f:\\3,1\\Compiler Design\\Compiler Design Lab\\Q-06.cpp","tests":[{"id":1761920739615,"input":"ch_ar\nch_*\n_chd\nbn_b\nbn_/\nbn_ffs4\n0\n01\n0000\n1010","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\3,1\\Compiler Design\\Compiler Design Lab\\Q-06.cpp","group":"local","local":true}
