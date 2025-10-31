@@ -52,46 +52,37 @@ string bitwise_operators[] = {"&", "|", "^", "~", "<<", ">>"};
 string assignment_operators[] = {"=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>="};
 string increment_decrement_operators[] = {"++", "--"};
 
-
-
 int main()
 {
-    //ifstream fin("Q-08.input.txt");
+    ifstream fin("Q-08.input.txt");
     string str;
     while (getline(cin, str))
     {
         bool isValid = true;
         if (find(begin(keywords), end(keywords), str) != end(keywords))
         {
-            cout << str << " : "
-                 << "Keyword\n";
+            cout << str << " : " << "Keywords" << "\n";
         }
         else if (find(begin(arithmetic_operators), end(arithmetic_operators), str) != end(arithmetic_operators))
         {
-            cout << str << " : "
-                 << "Arithmetic Operator\n";
+            cout << str << " : " << "Arithmetic Operator\n";
         }
         else if (find(begin(relational_operators), end(relational_operators), str) != end(relational_operators))
         {
-            cout << str << " : "
-                 << "Relational Operator\n";
+            cout << str << " : " << "Relational Operator\n";
         }
         else if (find(begin(logical_operators), end(logical_operators), str) != end(logical_operators))
         {
-            cout << str << " : "
-                 << "Logical Operator\n";
+            cout << str << " : " << "Logical Operator\n";
         }
         else if (find(begin(assignment_operators), end(assignment_operators), str) != end(assignment_operators))
         {
-            cout << str << " : "
-                 << "Assignment Operator\n";
+            cout << str << " : " << "Assignment Operator\n";
         }
         else if (find(begin(increment_decrement_operators), end(increment_decrement_operators), str) != end(increment_decrement_operators))
         {
-            cout << str << " : "
-                 << "Increment or Decrement Operator\n";
+            cout << str << " : " << "Increment or Decrement Operator\n";
         }
-
         else if (str[0] == '_' || isalpha(str[0]))
         {
             for (int i = 1; i < str.length(); i++)
@@ -103,36 +94,41 @@ int main()
                 }
             }
             if (isValid)
+            {
                 cout << str << " : " << "Identifier\n";
+            }
         }
-
         else if (str[0] == '"' && str[str.length() - 1] == '"')
         {
-            cout << str << " : "
-                 << "String Literal\n";
+            cout << str << " : " << "String Literal\n";
         }
-
         else if (str[0] == '.' || isdigit(str[0]))
         {
-            int dot_count = 0;
-            for (char c : str)
+            int dot_cnt = 0;
+            for (auto c : str)
             {
-                if (!isdigit(c) && c != '.')
+                if (c == '.')
+                    dot_cnt++;
+                else if (!isdigit(c) && c != '.')
                 {
                     isValid = false;
-                    break;
                 }
-                if (c == '.')
-                    dot_count++;
             }
-            if (isValid && dot_count == 0)
-                cout << str << " : "
-                     << "Integer\n";
-            else if (isValid && dot_count == 1)
-                cout << str << " : "
-                     << "Float\n";
-            else
-                isValid = false;
+            if (isValid)
+            {
+                if (dot_cnt == 0)
+                {
+                    cout << str << " : " << "Integer\n";
+                }
+                else if (dot_cnt == 1)
+                {
+                    cout << str << " : " << "Float\n";
+                }
+                else
+                {
+                    isValid = false;
+                }
+            }
         }
         else
         {
@@ -141,5 +137,6 @@ int main()
         if (!isValid)
             cout << str << " : " << "Invalid Lexeme\n";
     }
+
     return 0;
 }
