@@ -11,7 +11,6 @@ F   F->id                             F->(E)
 i+i+i*(i+i)
 */
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -41,7 +40,7 @@ void createTable()
 bool solve(string str)
 {
     stack<pair<int, char>> stk;
-    stk.push({0, 'E'}); // (indentation level, symbol)
+    stk.push({0, 'E'});
 
     for (int i = 0; i < str.size();)
     {
@@ -67,12 +66,10 @@ bool solve(string str)
             return false;
         }
 
-        // print the rule (parse tree step)
         for (int j = 0; j < space; j++)
             cout << " ";
         cout << top << " -----> " << prod << "\n";
 
-        // push production RHS in reverse
         for (int j = prod.size() - 1; j >= 0; j--)
         {
             if (prod[j] != '@')
@@ -85,15 +82,16 @@ bool solve(string str)
 
 int main()
 {
+    //ifstream fin("Q-15.input.txt");
     createTable();
 
     string str = "i+i*i$";
     cout << "Input: " << str << "\n\n";
 
     if (solve(str))
-        cout << "\n✅ Accepted\n";
+        cout << "\nAccepted\n";
     else
-        cout << "\n❌ Rejected\n";
+        cout << "\nRejected\n";
 
     return 0;
 }
