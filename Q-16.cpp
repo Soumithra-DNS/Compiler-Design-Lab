@@ -11,9 +11,9 @@ int precedence(char ch);
 string infixToPostfix(string infix);
 
 int main() {
-    //ifstream fin("Q-16.input.txt");
+    ifstream fin("Q-16.input.txt");
     string infix;
-    getline(cin, infix);
+    getline(fin, infix);
     cout << infixToPostfix(infix);
     return 0;
 }
