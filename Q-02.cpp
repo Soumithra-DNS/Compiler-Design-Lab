@@ -16,9 +16,9 @@ bool is_vowel(char c)
 
 int main()
 {
-    freopen("02.input.txt", "r", stdin);
+    ifstream fin("Q-02.input.txt");
     string input;
-    getline(cin, input);
+    getline(fin, input);
 
     int vowel = 0, consonant = 0;
 
