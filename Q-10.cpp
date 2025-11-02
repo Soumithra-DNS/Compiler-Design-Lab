@@ -33,15 +33,15 @@ void reduce()
 
 int main()
 {
-    //ifstream fin("10.input.txt");
+    ifstream fin("10.input.txt");
     string production;
     char startSymbol;
     int n;
-    cin >> n;
-    cin.ignore();
+    fin >> n;
+    fin.ignore();
     for (int i = 0; i < n; i++)
     {
-        getline(cin, production);
+        getline(fin, production);
         rules[production.substr(3)] = production[0];
         if (i == 0)
             startSymbol = production[0];
