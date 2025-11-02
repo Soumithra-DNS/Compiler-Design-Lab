@@ -10,9 +10,10 @@ using namespace std;
 
 int main()
 {
-    freopen("03.input.txt", "r", stdin);
+    //freopen("03.input.txt", "r", stdin);
     string input, dept_name;
-    getline(cin, input);
+    ifstream fin("Q-03.input.txt");
+    getline(fin, input);
 
     int i = 0;
     while (input[i] != '-')
