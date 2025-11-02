@@ -22,10 +22,11 @@ t5y
 using namespace std;
 int main()
 {
-    freopen("04.input.txt", "r", stdin);
+    //freopen("04.input.txt", "r", stdin);
+    ifstream fin("Q-04.input.txt");
     string word;
 
-    while (getline(cin, word))
+    while (getline(fin, word))
     {
         bool isValid = true;
         if (tolower(word[0]) >= 'i' && tolower(word[0]) <= 'n')
