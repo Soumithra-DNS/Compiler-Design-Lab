@@ -82,11 +82,11 @@ bool solve(string str)
 
 int main()
 {
-    //ifstream fin("Q-15.input.txt");
+    ifstream fin("Q-15.input.txt");
     createTable();
 
-    string str = "i+i*i$";
-    cout << "Input: " << str << "\n\n";
+    string str;
+    if (!getline(fin, str)) return 0;
 
     if (solve(str))
         cout << "\nAccepted\n";
