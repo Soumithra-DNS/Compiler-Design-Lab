@@ -4,6 +4,7 @@ Float variable = (a-hA-Ho-zO-Z)(a-zA-Z0-9)*
 Float Number = 0.(0-9)(0-9)|(1-9)(0-9)*.(0-9)(0-9)
 Double Number = 0.(0-9)(0-9)(0-9)+|(1-9)(0-9)*.(0-9)(0-9)(0-9)+
 Invalid Input or Undefined = Otherwise
+
 int
 bool
 reverse
@@ -41,7 +42,7 @@ int main()
             int dot_position = -1, dot_count = 0;
             for(int i = 1; i < word.size(); i++) {
                 if(word[i] == '.') {
-                    dot_position = i;
+                    dot_position = i; 
                     dot_count++;
                 }
                 if(!isdigit(word[i]) && (word[i] != '.')) {

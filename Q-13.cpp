@@ -133,7 +133,7 @@ void computeFollow()
 
 int main()
 {
-    freopen("13.input.txt", "r", stdin);
+    //freopen("13.input.txt", "r", stdin);
     string production;
     while (getline(cin, production))
     {
