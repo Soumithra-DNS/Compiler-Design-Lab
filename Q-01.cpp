@@ -9,9 +9,9 @@ using namespace std;
 
 int main()
 {
-    freopen("01.input.txt", "r", stdin);
+    ifstream fin("Q-01.input.txt");
     string input;
-    getline(cin, input);
+    getline(fin, input);
 
     int word = 1, letter = 0, digit = 0, other_character = 0;
     string letters, digits, other_characters;
