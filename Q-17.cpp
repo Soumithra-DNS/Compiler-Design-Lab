@@ -77,10 +77,10 @@ int precedence(char ch) {
 }
 
 int main() {
-    //ifstream fin("Q-17.input.txt");
+    ifstream fin("Q-17.input.txt");
     string infix;
     cout << "Enter conditional expression:\n";
-    getline(cin, infix);
+    getline(fin, infix);
     cout << solve(infix);
     return 0;
 }
