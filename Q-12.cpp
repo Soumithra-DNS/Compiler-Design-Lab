@@ -96,9 +96,9 @@ bool isValidExpression(const string& str){
 
 int main()
 {
-  //ifstream fin("Q-12.input.txt");
+  ifstream fin("Q-12.input.txt");
   string str;
-  while(getline(cin, str)){
+  while(getline(fin, str)){
   cout << (isValidExpression(str) ? "Valid" : "Invalid") << endl;
   }
 }
