@@ -21,10 +21,10 @@ bn_ffs4
 using namespace std;
 int main()
 {
-    //ifstream fin("Q-06.input.txt");
+    ifstream fin("Q-06.input.txt");
     string word;
 
-    while (getline(cin, word))
+    while (getline(fin, word))
     {
         bool isValid = true;
         if (word.size() >= 4 && ((word.substr(0, 3) == "ch_") || (word.substr(0, 3) == "bn_")) && isalnum(word[3])) {
