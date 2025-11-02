@@ -20,10 +20,10 @@ reverse
 using namespace std;
 int main()
 {
-    //ifstream fin("Q-05.input.txt");
+    ifstream fin("Q-05.input.txt");
     string word;
 
-    while (getline(cin, word))
+    while (getline(fin, word))
     {
         bool isValid = true;
         if ((tolower(word[0]) >= 'a' && tolower(word[0]) <= 'h') || (tolower(word[0]) >= 'o' && tolower(word[0]) <= 'z'))
