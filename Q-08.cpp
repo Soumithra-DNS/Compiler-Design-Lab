@@ -54,9 +54,9 @@ string increment_decrement_operators[] = {"++", "--"};
 
 int main()
 {
-    //ifstream fin("Q-08.input.txt");
+    ifstream fin("Q-08.input.txt");
     string str;
-    while (getline(cin, str))
+    while (getline(fin, str))
     {
         bool isValid = true;
         if (find(begin(keywords), end(keywords), str) != end(keywords))
