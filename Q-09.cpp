@@ -32,9 +32,10 @@ vector<string> noun = {"book", "cow", "dog", "home", "grass", "rice", "mango"};
 
 int main()
 {
-    //ifstream fin("09.input.txt");
+    ifstream fin("Q-09.input.txt");
+    
     string input;
-    while (getline(cin, input))
+    while (getline(fin, input))
     {
         string word;
         vector<string> words;
