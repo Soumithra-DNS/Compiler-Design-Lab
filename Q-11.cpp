@@ -38,9 +38,10 @@ void print(Node* root, int space = 0, int indent = 4) { // Inorder traversal of 
 }
 
 int main() {
+    ifstream fin("Q-11.input.txt");
     string str;
-    if (!getline(cin, str)) return 0; // read whole line (handles spaces)
-    // trim leading/trailing spaces (optional)
+    if (!getline(fin, str)) return 0; 
+  
     size_t first = str.find_first_not_of(" \t\r\n");
     if (first == string::npos) return 0;
     size_t last = str.find_last_not_of(" \t\r\n");
