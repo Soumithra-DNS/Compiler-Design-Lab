@@ -86,6 +86,4 @@ int main()
 /*
 g++ -o Q-09 Q-09.cpp
 .\Q-09.exe
-
-
 */
